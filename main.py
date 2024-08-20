@@ -25,6 +25,7 @@ def main():
     console.print(0, 0, "Mounted Blades")
     console.print(1, 2, "a Game of Lance and Horse")
     console.print(2, 4, "@ -----> l l l l")
+    console.print(4, 8, "▒▒▒²²²²²")
     with tcod.context.new(console=console, tileset=tileset) as context:
         while True:
             context.present(console) # render the console to the window and show it (presenting it to the player, that is to say)

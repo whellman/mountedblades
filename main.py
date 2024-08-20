@@ -1,5 +1,7 @@
 # main.py
 
+from __future__ import annotations
+
 from game.game_loop import GameLoop
 from game.game_state import GameState
 

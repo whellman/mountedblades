@@ -1,0 +1,16 @@
+{
+    "player": {
+        "components": {
+            "Position": {"x": 0, "y": 0},
+            "Health": {"hp": 100},
+            "Inventory": {}
+        }
+    },
+    "goblin": {
+        "components": {
+            "Position": {"x": 5, "y": 5},
+            "Health": {"hp": 30},
+            "Combat": {"attack": 5, "defense": 2}
+        }
+    }
+}

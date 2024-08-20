@@ -1,0 +1,17 @@
+# utilities/event.py
+
+class Event:
+    def __init__(self, name, data):
+        self.name = name
+        self.data = data
+
+class EventManager:
+    def __init__(self):
+        self.listeners = {}
+
+    def register_listener(self, event_name, listener):
+        self.listeners.setdefault(event_name, []).append(listener)
+
+    def broadcast(self, event):
+        for listener in self.listeners.get(event.name, []):
+            listener.handle_event(event)

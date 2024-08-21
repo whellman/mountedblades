@@ -1,7 +1,3 @@
 # Mounted Blades
 
-## horse
-
-## lance
-
-## profit?
+![ScreenShot](image.png)

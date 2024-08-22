@@ -31,6 +31,8 @@ def main():
     horse_color, armor_color = ensure_contrast(horse_color, armor_color)
     horse_string = f"²   ² ░░▒▒▓▓{tcod.COLCTRL_FORE_RGB:c}{armor_color[0]:c}{armor_color[1]:c}{armor_color[2]:c}{tcod.COLCTRL_BACK_RGB:c}{horse_color[0]:c}{horse_color[1]:c}{horse_color[2]:c}@{tcod.COLCTRL_STOP:c} {tcod.COLCTRL_FORE_RGB:c}{arrow_color[0]:c}{arrow_color[1]:c}{arrow_color[2]:c}------>{tcod.COLCTRL_STOP:c}l l l l"
     console.print(2, 5, horse_string)
+    console.draw_frame(x=24, y=6, width=10, height=3, fg=(0,180,0), bg=(0,80,0))
+    console.print(26, 7, "Looters")
 
 
     

@@ -46,6 +46,15 @@ def main():
                 command.execute(game_state)
             # 3 update game state
             #time_system.advance_time(game_state)
+            # this hardcoded dumb thing is a standin for actual time. Its very philosophical like that.
+            #for entity in game_state.entity_manager.entities:
+            #    human = entity.get("Human")
+            #    position = entity.get("Position")
+            #    if human and position:
+            #        game_state.entity_manager.set_component(entity, "Position", x=position.x+1, y=position.y+1)
+            #        print("eh")
+
+            
             # 4 render the current state
             root_console.clear() # hm
             render_system.render(game_state)

@@ -10,7 +10,8 @@ class RenderSystem:
         for entity in game_state.entity_manager.entities:
             human = entity.get("Human")
             position = entity.get("Position")
-
+            print(human)
+            print(position)
             if human and position:
                 self.draw_entity(position, human)
 

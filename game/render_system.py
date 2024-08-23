@@ -16,5 +16,5 @@ class RenderSystem:
 
     def draw_entity(self, position, human):
         # Example: Draw a simple character or rectangle
-        self.console.print(x=position.x, y=position.y, string=human.name, fg=human.color)
+        self.console.print(x=position.x, y=position.y, string='@', fg=human.color)
         # Alternatively, use tcod functions to draw shapes or images

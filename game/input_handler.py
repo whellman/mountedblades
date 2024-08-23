@@ -1,18 +1,31 @@
 # game/input_handler.py
 
-from utilities.command import Command
+import tcod
+from game.command import create_command
 
 class InputHandler:
     def handle_input(self):
-        # Collect input from the user
-        # For simplicity, let's assume a single command is returned
-        raw_input = self.get_input()
-        return [self.parse_command(raw_input)]
+        # List of commands to return
+        commands = []
 
-    def get_input(self):
-        # Placeholder for actual input collection logic
-        return input("Enter command: ")
+        # Poll for an event from the API
+        for event in tcod.event.wait(): #changed get to wait
+            if event.type == "KEYDOWN":
+                if event.sym == tcod.event.K_UP:
+                    commands.append(create_command("move_up"))
+                elif event.sym == tcod.event.K_DOWN:
+                    commands.append(create_command("move_down"))
+                elif event.sym == tcod.event.K_ESCAPE:
+                    commands.append(create_command("quit"))
+                # Handle other keys...
 
-    def parse_command(self, raw_input):
-        # Translate raw input into a command object
-        return Command(raw_input)
+            elif isinstance(event, tcod.event.Quit): #event.type == "QUIT":
+                commands.append(create_command("quit"))
+                #raise SystemExit
+
+        return commands
+#
+#            for event in tcod.event.wait(): #event loop, blocks until pending events EXIST
+#                print(event)
+#                if isinstance(event, tcod.event.Quit):
+#                    raise SystemExit

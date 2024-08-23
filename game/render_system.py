@@ -8,10 +8,8 @@ class RenderSystem:
 
     def render(self, game_state):
         for entity in game_state.entity_manager.entities:
-            human = entity.get("Human")
-            position = entity.get("Position")
-            print(human)
-            print(position)
+            human = game_state.entity_manager.get_component(entity, "Human")
+            position = game_state.entity_manager.get_component(entity, "Position")
             if human and position:
                 self.draw_entity(position, human)
 

@@ -5,12 +5,13 @@ class Command:
 class MoveUpCommand(Command):
     def execute(self, game_state):
         player = game_state.player
-        player.move(0, -1)
+        game_state.entity_manager.set_component(player, "Velocity", dx=0, dy=-1)
 
 class MoveDownCommand(Command):
     def execute(self, game_state):
         player = game_state.player
-        player.move(0, 1)
+        game_state.entity_manager.set_component(player, "Velocity", dx=0, dy=1)
+ 
 
 class QuitCommand(Command):
     def execute(self, game_state):

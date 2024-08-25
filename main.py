@@ -7,13 +7,15 @@ import tcod.context
 import tcod.event
 import tcod.tileset
 
+import random
+
 from utilities.color_utils import ensure_contrast
 
 #from game.game_loop import GameLoop
 from game.game_state import GameState
 from game.input_handler import InputHandler
 from game.render_system import RenderSystem
-#from game.time_system import TimeSystem
+from game.time_system import TimeSystem
 
 def main():
     # Initialize game systems
@@ -32,7 +34,7 @@ def main():
     game_state = GameState()
     input_handler = InputHandler()
     render_system = RenderSystem(root_console)
-#    time_system = TimeSystem()
+    time_system = TimeSystem()
 
 
     # console.print(0, 0, "Mounted Blades")
@@ -45,19 +47,24 @@ def main():
             for command in commands:
                 command.execute(game_state)
             # 3 update game state
-            #time_system.advance_time(game_state)
+            time_system.advance_time(game_state)
             # this hardcoded dumb thing is a standin for actual time. Its very philosophical like that.
-            for entity in game_state.entity_manager.entities:
-                human = game_state.entity_manager.get_component(entity, "Human")
-                position = game_state.entity_manager.get_component(entity, "Position")
-                if human and position:
-                    newx = position.x + 1
-                    newy = position.y + 1
-                    if newx > screen_width:
-                        newx = 0
-                    if newy > screen_height:
-                        newy = 0
-                    game_state.entity_manager.set_component(entity, "Position", x=newx, y=newy)
+            #for entity in game_state.entity_manager.entities:
+            #    human = game_state.entity_manager.get_component(entity, "Human")
+            #    position = game_state.entity_manager.get_component(entity, "Position")
+            #    if human and position:
+            #        newx = position.x + (random.randint(-1, 1))
+            #        newy = position.y + (random.randint(-1, 1))
+            #        if newx > screen_width: # 80
+            #            newx = 0
+            #        if newy > screen_height: # 50
+            #            newy = 0
+            #        if newx < 0:
+            #            newx = screen_width
+            #        if newy < 0:
+            #            newy = screen_height
+                    
+            #        game_state.entity_manager.set_component(entity, "Position", x=newx, y=newy)
              #       print("eh")
 
             

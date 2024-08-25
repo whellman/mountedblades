@@ -12,6 +12,9 @@ class RenderSystem:
             position = game_state.entity_manager.get_component(entity, "Position")
             if human and position:
                 self.draw_entity(position, human)
+            if entity == game_state.player:
+                self.draw_entity(position, game_state.entity_manager.get_component(entity, "Player"))
+                
 
     def draw_entity(self, position, human):
         # Example: Draw a simple character or rectangle

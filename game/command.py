@@ -11,6 +11,15 @@ class MoveDownCommand(Command):
     def execute(self, game_state):
         player = game_state.player
         game_state.entity_manager.set_component(player, "Velocity", dx=0, dy=1)
+class MoveLeftCommand(Command):
+    def execute(self, game_state):
+        player = game_state.player
+        game_state.entity_manager.set_component(player, "Velocity", dx=-1, dy=0)
+
+class MoveRightCommand(Command):
+    def execute(self, game_state):
+        player = game_state.player
+        game_state.entity_manager.set_component(player, "Velocity", dx=1, dy=0)
  
 
 class QuitCommand(Command):
@@ -21,6 +30,8 @@ class QuitCommand(Command):
 COMMAND_REGISTRY = {
     "move_up": MoveUpCommand,
     "move_down": MoveDownCommand,
+    "move_left": MoveLeftCommand,
+    "move_right": MoveRightCommand,
     "quit": QuitCommand,
     # Map other actions to command classes...
 }

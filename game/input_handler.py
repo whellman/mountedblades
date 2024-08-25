@@ -15,6 +15,10 @@ class InputHandler:
                     commands.append(create_command("move_up"))
                 elif event.sym == tcod.event.K_DOWN:
                     commands.append(create_command("move_down"))
+                elif event.sym == tcod.event.K_LEFT:
+                    commands.append(create_command("move_left"))
+                elif event.sym == tcod.event.K_RIGHT:
+                    commands.append(create_command("move_right"))
                 elif event.sym == tcod.event.K_ESCAPE:
                     commands.append(create_command("quit"))
                 # Handle other keys...
